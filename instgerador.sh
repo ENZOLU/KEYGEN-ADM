@@ -1,7 +1,7 @@
 #!/bin/bash
 IVAR="/etc/http-instas"
 SCPT_DIR="/etc/SCRIPT"
-SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FBQUFBRVhRT1N5SXBOMkpaMGVoVVEvR0VORVJBRE9SLU5FVy1VTFRJTUFURS1PUklHSU5BTC9tYXN0ZXIvZ2VyYWRvcg=="
+SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0VOWk9MVS9HRU5FUkFET1ItTkVXLVVMVElNQVRFLU9SSUdJTkFML21hc3Rlci9nZXJhZG9y"
 SUB_DOM='base64 -d'
 rm $(pwd)/$0
 ofus () {
@@ -45,7 +45,7 @@ MIP2=$(wget -qO- ipv4.icanhazip.com)
 echo "$IP" > /usr/bin/vendor_code
 }
 meu_ip
-echo -e "\033[1;33mInstalando Arquivos... "
+echo -e "\033[1;33mInstalando archivos... "
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 cd $HOME
 REQUEST=$(echo $SCPresq|$SUB_DOM)
@@ -53,11 +53,11 @@ wget -O "$HOME/lista-arq" ${REQUEST}/GERADOR > /dev/null 2>&1
 sleep 1s
 [[ -e $HOME/lista-arq ]] && {
 for arqx in `cat $HOME/lista-arq`; do
-echo -ne "\033[1;33mBaixando Arquivo \033[1;31m[$arqx] "
+echo -ne "\033[1;33mDescargando archivo \033[1;31m[$arqx] "
 wget -O $HOME/$arqx ${REQUEST}/${arqx} > /dev/null 2>&1 && {
-echo -e "\033[1;31m- \033[1;32mRecebido Com Sucesso!"
+echo -e "\033[1;31m- \033[1;32mRecibido con exito!"
 [[ -e $HOME/$arqx ]] && veryfy_fun $arqx
-} || echo -e "\033[1;31m- \033[1;31mFalha (nao recebido!)"
+} || echo -e "\033[1;31m- \033[1;31mFalha (no recibido!)"
 done
 [[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/Install/trans &> /dev/null
 [[ -e /bin/http-server.py ]] && mv -f /bin/http-server.py /bin/http-server.sh && chmod +x /bin/http-server.sh
@@ -74,8 +74,8 @@ echo "$Key" > $IVAR2
 rm $HOME/lista-arq
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
-echo -e "\033[1;33m Perfeito, Use o Comando \033[1;31mgerar.sh o gerar \033[1;33mpara Gerenciar as Suas Keys e
- Atualizar a Base do servidor"
+echo -e "\033[1;33m Perfecto, utilize el comando \033[1;31mgerar.sh o gerar \033[1;33mpara administrar sus keys y
+ actualizar la base del servidor."
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 } || {
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
