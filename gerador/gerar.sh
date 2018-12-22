@@ -5,7 +5,7 @@ BASICINST="menu message.txt ports.sh ADMbot.sh PGet.py usercodes sockspy.sh POpe
 IVAR="/etc/http-instas"
 IVAR2="/etc/key-gerador"
 cabecalho_fun () {
-BARRA="\033[1;36m============================================\033[0m"
+BARRA="\033[1;36m--------------------------------------------\033[0m"
 echo -e "$BARRA"
 cat << EOF
 
@@ -194,12 +194,12 @@ echo -e "$BARRA"
 echo -e "Directorio de los archivos repasados \033[1;31m${SCPT_DIR}\033[0m"
 echo -e "$BARRA"
 echo -e "[1] = $(fun_trans ${id} "GENERAR 1 KEY ALEATORIA")"
-echo -e "[2] = $(fun_trans ${id} "APAGAR/MIRAR KEYS")"
-echo -e "[3] = $(fun_trans ${id} "INICIAR/PARAR") KEYGEN $PID_GEN\033[0m"
+echo -e "[2] = $(fun_trans ${id} "APAGAR O MIRAR KEYS")"
+echo -e "[3] = $(fun_trans ${id} "INICIAR O PARAR") KEYGEN $PID_GEN\033[0m"
 echo -e "[4] = $(fun_trans ${id} "VER LOG")"
 echo -e "[5] = $(fun_trans ${id} "CAMBIAR MENSAJE")"
 echo -e "[6] = $(fun_trans ${id} "ACTUALIZAR KEYS FIJAS")"
-echo -e "[7] = $(fun_trans ${id} "ACTUALIZAR GERADOR")"
+echo -e "[7] = $(fun_trans ${id} "ACTUALIZAR GENERADOR")"
 echo -e "[0] = $(fun_trans ${id} "SALIR")"
 echo -e "$BARRA"
 while [[ ${varread} != @([0-7]) ]]; do
