@@ -132,37 +132,25 @@ read -p "Enter para finalizar"
 remover_key () {
 i=0
 [[ -z $(ls $DIR|grep -v "ERROR-KEY") ]] && return
-echo "[$i] Volver"
+echo "[$i] Retornar"
 keys="$keys retorno"
 let i++
 for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
 arqsx=$(ofus "$IP:8888/$arqs/$LIST")
-[[ $(cat ${DIR}/${arqs}.name|grep FIXA) ]] && echo -e "\033[1;33m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;32m ($(cat ${DIR}/${arqs}/keyfixa))\033[0m" || echo -e "[$i] $arqsx ($(cat ${DIR}/${arqs}.name))"
+if [[ ! -e ${DIR}/${arqs}/used.date ]]; then
+echo -e "\033[1;32m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;33m (AGUARDANDO USO)\033[0m"
+else
+echo -e "\033[1;31m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;33m ($(cat ${DIR}/${arqs}/used.date) IP: $(cat ${DIR}/${arqs}/used))\033[0m"
+fi
 keys="$keys $arqs"
 let i++
 done
 keys=($keys)
 echo -e "$BARRA"
 while [[ -z ${keys[$value]} || -z $value ]]; do
-read -p "Elija cual remover: " -e -i 0 value
+read -p "Escolha qual remover: " -e -i 0 value
 done
 [[ -d "$DIR/${keys[$value]}" ]] && rm -rf $DIR/${keys[$value]}* || return
-}
-atualizar_keyfixa () {
-i=0
-[[ -z $(ls $DIR|grep -v "ERROR-KEY") ]] && return
-for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
- if [[ $(cat ${DIR}/${arqs}.name|grep FIXA) ]]; then #Keyfixa Atualiza
-   for arqx in `echo "${BASICINST}"`; do
-    cp ${SCPT_DIR}/$arqx ${DIR}/${arqs}/$arqx
-   done
- arqsx=$(ofus "$IP:8888/$arqs/$LIST")
- echo -e "\033[1;33m[KEY]: $arqsx \033[1;32m(ACTUALIZADA!)\033[0m"
- fi
-let i++
-done
-echo -e "$BARRA"
-echo -ne "\033[0m" && read -p "Enter"
 }
 start_gen () {
 unset PIDGEN
