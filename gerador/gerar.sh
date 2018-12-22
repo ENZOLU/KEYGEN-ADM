@@ -5,7 +5,7 @@ BASICINST="menu message.txt ports.sh ADMbot.sh PGet.py usercodes sockspy.sh POpe
 IVAR="/etc/http-instas"
 IVAR2="/etc/key-gerador"
 cabecalho_fun () {
-BARRA="\033[1;36m--------------------------------------------\033[0m"
+BARRA="\033[1;36m--------------------------------------------------------\033[0m"
 echo -e "$BARRA"
 cat << EOF
 
