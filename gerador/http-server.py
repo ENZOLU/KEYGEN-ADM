@@ -45,7 +45,7 @@ ENV_ARQ="True"
  else
    if [[ ${USRIP} = "ERRO" ]]; then
     FILE="${DIR}/ERROR-KEY"
-    echo "KEY DE INSTALAÇAO!" > ${FILE}
+    echo "KEY DE INSTALAÃ‡AO!" > ${FILE}
     ENV_ARQ="False"
    fi
  fi
@@ -85,8 +85,8 @@ PERM="${DIR}/${KEY}/keyfixa"
 if [[ -e $PERM ]]; then
   if [[ $(cat $PERM) != "$USRIP" ]]; then
   log="/etc/gerar-sh-log"
-  echo "USUARIO: $(cat ${FILE2}.name) IP FIXO: $(cat $PERM) USOU IP: $USRIP" >> $log
-  echo "SUA KEY FIXA FOI BLOQUEADA" >> $log
+  echo "USUARIO: $(cat ${FILE2}.name) IP FIJA: $(cat $PERM) SU IP: $USRIP" >> $log
+  echo "SSU KEY FIJA FUE BLOQUEADA" >> $log
   echo "--------------------------------------------------------------------" >> $log
   rm -rf "$FILE2"
   rm "${FILE2}.name"
