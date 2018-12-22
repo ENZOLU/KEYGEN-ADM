@@ -86,7 +86,7 @@ if [[ -e $PERM ]]; then
   if [[ $(cat $PERM) != "$USRIP" ]]; then
   log="/etc/gerar-sh-log"
   echo "USUARIO: $(cat ${FILE2}.name) IP FIJA: $(cat $PERM) SU IP: $USRIP" >> $log
-  echo "SSU KEY FIJA FUE BLOQUEADA" >> $log
+  echo "SU KEY FIJA FUE BLOQUEADA" >> $log
   echo "--------------------------------------------------------------------" >> $log
   rm -rf "$FILE2"
   rm "${FILE2}.name"
