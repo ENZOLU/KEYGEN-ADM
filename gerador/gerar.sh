@@ -2,6 +2,7 @@
 clear
 # INSTALACAO BASICA
 BASICINST="menu message.txt ports.sh ADMbot.sh PGet.py usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh"
+GERADOR="gerar.sh http-server.py menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh fai2ban.sh gestor.sh vnc dados.sh anti-ddos.sh un-ddos.sh crear-demo GENERADOR_BIN.sh MasterBin.sh paysnd.sh payySND.sh ultrahost
 IVAR="/etc/http-instas"
 IVAR2="/etc/key-gerador"
 cabecalho_fun () {
