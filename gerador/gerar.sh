@@ -193,7 +193,7 @@ PID_GEN=$(ps x|grep -v grep|grep "http-server.sh")
 echo -e "$BARRA"
 echo -e "Directorio de los archivos repasados \033[1;31m${SCPT_DIR}\033[0m"
 echo -e "$BARRA"
-echo -e "[1] = $(fun_trans ${id} "GENERAR 1 KEY ALEATORIA\033[0m")"
+echo -e "[1] = $(fun_trans ${id} "GENERAR 1 KEY ALEATORIA")"
 echo -e "[2] = $(fun_trans ${id} "APAGAR O MIRAR KEYS")"
 echo -e "[3] = $(fun_trans ${id} "INICIAR O PARAR") KEYGEN $PID_GEN\033[0m"
 echo -e "[4] = $(fun_trans ${id} "VER LOG")"
