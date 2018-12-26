@@ -71,6 +71,11 @@ sed -i "s;Listen 80;Listen 81;g" /etc/apache2/ports.conf
 service apache2 restart > /dev/null 2>&1 &
 IVAR2="/etc/key-gerador"
 echo "$Key" > $IVAR2
+mkdir /etc/GENERADOR
+chmod 777 /etc/GENERADOR
+cp /etc/SCRIPT/* /etc/GENERADOR
+cp /usr/bin/gerar.sh /etc/GENERADOR
+cp $HOME/lista-arq /etc/GENERADOR
 rm $HOME/lista-arq
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
