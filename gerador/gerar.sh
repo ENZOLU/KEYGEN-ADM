@@ -4,6 +4,7 @@ clear
 BASICINST="menu message.txt ports.sh ADMbot.sh PGet.py usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh"
 IVAR="/etc/http-instas"
 IVAR2="/etc/key-gerador"
+GENINST="/etc/GENERADOR"
 cabecalho_fun () {
 BARRA="\033[1;36m--------------------------------------------------------------------\033[0m"
 echo -e "$BARRA"
@@ -19,6 +20,7 @@ rm ${SCPT_DIR}/*.x.c &> /dev/null
 INSTA_ARQUIVOS="ADMVPS.zip"
 DIR="/etc/http-shell"
 LIST="lista-arq"
+GENLIST="GERADOR"
 }
 meu_ip () {
 MIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
@@ -61,9 +63,15 @@ arq_list[$i]="${arqx}"
 let i++
 done
 echo -e "[x] -> TODAS LAS HERRAMIENTAS"
-echo -e "[b] -> \033[1;33mINSTALACION NEW-ADM\033[0m"
+echo -e "[g] -> GENERADOR DE KEY"
+echo -e "[b] -> \033[1;33mINSTALACION NEW-ADM\033[0m
 read -p "Elija los archivos a ser repasados: " readvalue
 [[ -z $readvalue ]] && readvalue="b"
+read -p "Nombre de usuario ( comprador de la key ): " nombrevalue
+[[ -z $nombrevalue ]] && nombrevalue="unnamed"
+read -p "Key fija? [S/N]: " -e -i n fixakey
+[[ $fixakey = @(s|S|y|Y) ]] && read -p "IP-Fijo: " IPFIX && nombrevalue+=[FIXA]
+[[ -z $readvalue ]] && readvalue="g"
 read -p "Nombre de usuario ( comprador de la key ): " nombrevalue
 [[ -z $nombrevalue ]] && nombrevalue="unnamed"
 read -p "Key fija? [S/N]: " -e -i n fixakey
@@ -74,6 +82,14 @@ if [[ $readvalue = @(b|B) ]]; then
  for arqx in `echo "${arqslist}"`; do
  [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
  cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/
+ echo "$arqx" >> ${DIR}/${KEY}/${LIST}
+ done
+ elif [[ $readvalue = @(g|G) ]]; then
+#KEYGEN KEY
+ arqslist="$GENINST"
+ for arqx in `echo "${arqslist}"`; do
+ [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
+ cp $[GENINST] ${DIR}/${KEY}/
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
 elif [[ $readvalue = @(x|X) ]]; then
