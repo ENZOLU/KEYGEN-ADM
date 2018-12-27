@@ -63,7 +63,7 @@ arq_list[$i]="${arqx}"
 let i++
 done
 echo -e "[x] -> TODAS LAS HERRAMIENTAS"
-echo -e "[g] -> GENERADOR DE KEY"
+echo -e "[g] -> \033[1;31mGENERADOR DE KEY\033[0m"
 echo -e "[b] -> \033[1;33mINSTALACION NEW-ADM\033[0m"
 read -p "Elija los archivos a ser repasados: " readvalue
 [[ -z $readvalue ]] && readvalue="b"
