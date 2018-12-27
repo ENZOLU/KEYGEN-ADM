@@ -70,12 +70,7 @@ read -p "Elija los archivos a ser repasados:" readvalue
 read -p "Nombre de usuario \( comprador de la key \):" nombrevalue
 [[ -z $nombrevalue ]] && nombrevalue="unnamed"
 read -p "Key fija? [S/N]:" -e -i n fixakey
-[[ $fixakey = @(s|S|y|Y) ]] && read -p "IP-Fijo: " IPFIX && nombrevalue+=[FIXA]
-[[ -z $readvalue ]] && readvalue="g"
-read -p "Nombre de usuario \( comprador de la key \): " nombrevalue
-[[ -z $nombrevalue ]] && nombrevalue="unnamed"
-read -p "Key fija? [S/N]:" -e -i n fixakey
-[[ $fixakey = @(s|S|y|Y) ]] && read -p "IP-Fijo: " IPFIX && nombrevalue+=[FIXA]
+[[ $fixakey = @(s|S|y|Y) ]] && read -p "IP-Fija: " IPFIX && nombrevalue+=[FIXA]
 if [[ $readvalue = @(b|B) ]]; then
 #ADM BASIC
  arqslist="$BASICINST"
