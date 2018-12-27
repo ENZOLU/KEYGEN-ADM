@@ -1,12 +1,12 @@
-# GENERADOR-NEW-ULTIMATE-ORIGINAL
+# GENERADOR DE GENERADIRED
 
-Generador De Key
+Generador de keys para instalar el generador usando el link oficisl
 
-1 • RECOMENDADO UBUNTU 14.04
+1 • SE RECOMIENDA UBUNTU 14.04 LTS
 
-2 • USAR DISTRIBUCION NUEVA O FORMATEADA
+2 • SOURCE TRADUCIDO CON COMENTARIOS EN ESPAÑOL
 
-3 • ESTE SCRIPT INSTALARÁ EL GENERADOR Y SCRIPT NEW-ULTIMATE CON TODOS SUS ARCHIVOS ORIGINALES Y SIN MODIFICAR
+3 • SCRIPT TRADUCIDO AL ESPAÑOL PARA MEJOR ENTENDIMIENTO
 
 EJECUTAR ESTE COMANDO COMO ROOT (sudo -i)
 
@@ -14,17 +14,15 @@ wget https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL-1/
 
 =======================================================================
 
-NEW - ADM - MANAGER ( OFICIAL ) PARA QUE USEN SU GENERADOR DE KEY
+INSTALADOR DEL GENERADOR
 
-apt-get update -y; apt-get upgrade -y; wget https://www.dropbox.com/s/s4k7ovuimvkr3zf/instalar.sh?dl=0; chmod 777 instalar.sh* && ./instalar.sh*
-
-INSTALADOR ALTERNATIVO
-
-apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/instalar.sh; chmod 777 instalar.sh* && ./instalar.sh*
-
-==================================================================================
-COMPLETAMENTE FREE! SOURCE CODE TRADUCIDO!
+apt-get update -y; apt-get upgrade -y; wget https://www.dropbox.com/s/w0s2rv92wy7z3fq/instgerador.sh; sudo chmod 777 instgerador.sh; ./instgerador.sh
 
 ===============
-@marchnickadm
+
+COMPLETAMENTE FREE! 
+
 ===============
+
+
+TELEGRAM: @marchnickadm
