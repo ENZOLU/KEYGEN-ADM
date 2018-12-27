@@ -191,7 +191,7 @@ echo "$MSGNEW" > ${SCPT_DIR}/message.txt
 echo -e "$BARRA"
 }
 atualizar_geb () {
-wget -O $HOME/instger.sh https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL-1/master/instgerador.sh &>/dev/null
+wget -O $HOME/instger.sh https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL-1/GENERADOR-DE-GENERADORES/instgerador.sh &>/dev/null
 chmod 777 $HOME/instger.sh
 cd $HOME
 ./instger.sh
