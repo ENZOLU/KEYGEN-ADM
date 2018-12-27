@@ -20,7 +20,7 @@ rm ${SCPT_DIR}/*.x.c &> /dev/null
 INSTA_ARQUIVOS="ADMVPS.zip"
 DIR="/etc/http-shell"
 LIST="lista-arq"
-GENLIST="GERADOR"
+GENLIST="/etc/GENERADOR/GERADOR"
 }
 meu_ip () {
 MIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
