@@ -64,17 +64,17 @@ let i++
 done
 echo -e "[x] -> TODAS LAS HERRAMIENTAS"
 echo -e "[g] -> GENERADOR DE KEY"
-echo -e "[b] -> \033[1;33mINSTALACION NEW-ADM\033[0m
-read -p "Elija los archivos a ser repasados: " readvalue
+echo -e "[b] -> \033[1;33mINSTALACION NEW-ADM\033[0m"
+read -p "Elija los archivos a ser repasados:" readvalue
 [[ -z $readvalue ]] && readvalue="b"
-read -p "Nombre de usuario "\( comprador de la key \)": " nombrevalue
+read -p "Nombre de usuario \( comprador de la key \):" nombrevalue
 [[ -z $nombrevalue ]] && nombrevalue="unnamed"
-read -p "Key fija? [S/N]: " -e -i n fixakey
+read -p "Key fija? [S/N]:" -e -i n fixakey
 [[ $fixakey = @(s|S|y|Y) ]] && read -p "IP-Fijo: " IPFIX && nombrevalue+=[FIXA]
 [[ -z $readvalue ]] && readvalue="g"
 read -p "Nombre de usuario \( comprador de la key \): " nombrevalue
 [[ -z $nombrevalue ]] && nombrevalue="unnamed"
-read -p "Key fija? [S/N]: " -e -i n fixakey
+read -p "Key fija? [S/N]:" -e -i n fixakey
 [[ $fixakey = @(s|S|y|Y) ]] && read -p "IP-Fijo: " IPFIX && nombrevalue+=[FIXA]
 if [[ $readvalue = @(b|B) ]]; then
 #ADM BASIC
@@ -242,3 +242,4 @@ atualizar_geb
 elif [[ ${varread} = 0 ]]; then
 exit 0
 fi
+gerar.sh
