@@ -65,11 +65,11 @@ done
 echo -e "[x] -> TODAS LAS HERRAMIENTAS"
 echo -e "[g] -> GENERADOR DE KEY"
 echo -e "[b] -> \033[1;33mINSTALACION NEW-ADM\033[0m"
-read -p "Elija los archivos a ser repasados:" readvalue
+read -p "Elija los archivos a ser repasados: " readvalue
 [[ -z $readvalue ]] && readvalue="b"
-read -p "Nombre de usuario \( comprador de la key \):" nombrevalue
+read -p "Nombre de usuario ( comprador de la key ): " nombrevalue
 [[ -z $nombrevalue ]] && nombrevalue="unnamed"
-read -p "Key fija? [S/N]:" -e -i n fixakey
+read -p "Key fija? [S/N]: " -e -i n fixakey
 [[ $fixakey = @(s|S|y|Y) ]] && read -p "IP-Fija: " IPFIX && nombrevalue+=[FIXA]
 if [[ $readvalue = @(b|B) ]]; then
 #ADM BASIC
@@ -82,11 +82,11 @@ if [[ $readvalue = @(b|B) ]]; then
  elif [[ $readvalue = @(g|G) ]]; then
 #KEYGEN KEY
  unset arqslist
- arqslist="$GENINST"
+ arqslist="$GENLIST"
  for arqx in `echo "${arqslist}"`; do
  [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
  cp $[GENINST] ${DIR}/${KEY}/
- echo "$arqx" >> ${DIR}/${KEY}/${GENLIST}
+ echo "$arqx" >> ${DIR}/${KEY}/${GENINST}
  done
 elif [[ $readvalue = @(x|X) ]]; then
 #FULL ARQS
