@@ -173,7 +173,7 @@ for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
     cp ${SCPT_DIR}/$arqx ${DIR}/${arqs}/$arqx
    done
  arqsx=$(ofus "$IP:8888/$arqs/$LIST")
- echo -e "\033[1;33m[KEY]: $arqsx \033[1;32m(ACTUALIZADA!)\033[0m"
+ echo -e \033[1;33m[KEY]: $arqsx \033[1;32m\(ACTUALIZADA!\)\033[0m
  fi
 let i++
 done
