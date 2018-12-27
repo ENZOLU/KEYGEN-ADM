@@ -86,7 +86,7 @@ if [[ $readvalue = @(b|B) ]]; then
  for arqx in `echo "${arqslist}"`; do
  [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
  cp /etc/GENERADOR/* /etc/http-shell/${KEY}/
- echo "$arqx" >> etc/http-shell/${KEY}/${GENINST}
+ echo "$arqx" >> etc/http-shell/${KEY}/${GENLIST}
  done
 elif [[ $readvalue = @(x|X) ]]; then
 #FULL ARQS
