@@ -77,6 +77,8 @@ cp /etc/SCRIPT/* /etc/GENERADOR
 cp /usr/bin/gerar.sh /etc/GENERADOR
 cp $HOME/lista-arq /etc/GENERADOR
 cp /bin/http-server.sh /etc/GENERADOR
+mv /etc/GENERADOR/http-server.sh /etc/GENERADOR/http-server.py
+wget https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL-1/GENERADOR-DE-GENERADORES/gerador/GERADOR
 cp $HOME/GERADOR /etc/GENERADOR
 rm $HOME/lista-arq
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
