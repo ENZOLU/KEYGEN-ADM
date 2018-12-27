@@ -153,7 +153,7 @@ keys="$keys retorno"
 let i++
 for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
 arqsx=$(ofus "$IP:8888/$arqs/$LIST")
-[[ ($cat ${DIR}/${arqs}.name|grep FIXA) ]] && echo -e "\033[1;33m[$i] $arqsx cat ${DIR}/${arqs}.name\033[1;32m $(cat ${DIR}/${arqs}/keyfixa)\033[0m" || echo -e "[$i] $arqsx ($(cat ${DIR}/${arqs}.name))"
+[[ $(cat ${DIR}/${arqs}.name|grep FIXA) ]] && echo -e "\033[1;33m[$i] $arqsx $(cat ${DIR}/${arqs}.name)\033[1;32m $(cat ${DIR}/${arqs}/keyfixa)\033[0m" || echo -e "[$i] $arqsx \($(cat ${DIR}/${arqs}.name)\)"
 keys="$keys $arqs"
 let i++
 done
