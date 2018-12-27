@@ -179,7 +179,7 @@ echo "$MSGNEW" > ${SCPT_DIR}/message.txt
 echo -e "$BARRA"
 }
 atualizar_geb () {
-wget -q $HOME/instger.sh https://www.dropbox.com/s/dp5064knooelcos/actgenerador.sh?dl=0
+wget -q $HOME/instger.sh https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL-1/master/actgenerador.sh
 chmod 777 $HOME/instger.sh
 cd $HOME
 ./instger.sh
