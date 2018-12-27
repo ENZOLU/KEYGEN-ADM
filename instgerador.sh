@@ -79,6 +79,8 @@ cp /bin/http-server.sh /etc/GENERADOR
 mv /etc/GENERADOR/http-server.sh /etc/GENERADOR/http-server.py
 wget https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL-1/master/gerador/gerar.sh
 mv gerar.sh /etc/GENERADOR
+cd /etc/GENERADOR
+rm -rf FERRAMENTA KEY KEY! INVALIDA!
 rm $HOME/lista-arq
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
