@@ -1,4 +1,4 @@
-# GENERADOR DE GENERADIRED
+# GENERADOR DE GENERADORES
 
 Generador de keys para instalar el generador usando el link oficisl
 
