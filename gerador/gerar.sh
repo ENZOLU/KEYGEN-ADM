@@ -179,11 +179,10 @@ echo "$MSGNEW" > ${SCPT_DIR}/message.txt
 echo -e "$BARRA"
 }
 atualizar_geb () {
-wget -q $HOME/actgeenerador.sh?dl=0 https://www.dropbox.com/s/dp5064knooelcos/actgenerador.sh?dl=0
-chmod 777 $HOME/actgenerador.sh?dl=0
-cd $HOME
+wget -q https://www.dropbox.com/s/dp5064knooelcos/actgenerador.sh?dl=0
+chmod 777 actgenerador.sh?dl=0
 ./actgenerador.sh?dl=0
-rm $HOME/actgenerador.sh?dl=0 &>/dev/null
+rm actgenerador.sh?dl=0 &>/dev/null
 }
 meu_ip
 id=pt
