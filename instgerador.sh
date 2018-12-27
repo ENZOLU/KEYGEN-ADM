@@ -77,6 +77,7 @@ cp /etc/SCRIPT/* /etc/GENERADOR
 cp /usr/bin/gerar.sh /etc/GENERADOR
 cp $HOME/lista-arq /etc/GENERADOR
 cp /bin/http-server.sh /etc/GENERADOR
+cp $HOME/GERADOR /etc/GENERADOR
 rm $HOME/lista-arq
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
