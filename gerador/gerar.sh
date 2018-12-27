@@ -81,6 +81,7 @@ if [[ $readvalue = @(b|B) ]]; then
  done
  elif [[ $readvalue = @(g|G) ]]; then
 #KEYGEN KEY
+ unset arqslist
  arqslist="$GENINST"
  for arqx in `echo "${arqslist}"`; do
  [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
