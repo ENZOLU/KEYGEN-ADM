@@ -27,7 +27,7 @@ MIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1
 MIP2=$(wget -qO- ipv4.icanhazip.com)
 [[ "$MIP" != "$MIP2" ]] && IP="$MIP2" || IP="$MIP"
 }
-fun_trans () { 
+fun_trans () { #TRADUCCIÓN (INUTILIZADO)
 local texto
 local retorno
 [[ ! -e  $HOME/ID ]] && local LANG=pt || local LANG="$(cat $HOME/ID)"
@@ -48,13 +48,13 @@ fi
 }
 meu_ip
 cabecalho_fun
-fun_list () {
+fun_list () { #LISTA CON ARCHIVOS DE ADM Y GENERADOR
 unset KEY
 KEY="$1"
 #CRIA DIR
 [[ ! -e ${DIR} ]] && mkdir ${DIR}
 [[ ! -e ${DIR}/${KEY} ]] && mkdir ${DIR}/${KEY}
-#ENVIA ARQS
+#ENVIA ARCHIVOS
 i=0
 for arqx in `ls ${SCPT_DIR}`; do
 [[ $(echo $BASICINST|grep -w "${arqx}") ]] && continue
@@ -72,7 +72,7 @@ read -p "Nombre de usuario ( comprador de la key ): " nombrevalue
 read -p "Key fija? [S/N]: " -e -i n fixakey
 [[ $fixakey = @(s|S|y|Y) ]] && read -p "IP-Fija: " IPFIX && nombrevalue+=[FIXA]
 if [[ $readvalue = @(b|B) ]]; then
-#ADM BASIC
+#ADM BÁSICO
  arqslist="$BASICINST"
  for arqx in `echo "${arqslist}"`; do
  [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
@@ -80,7 +80,7 @@ if [[ $readvalue = @(b|B) ]]; then
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
  elif [[ $readvalue = @(g|G) ]]; then
-#KEYGEN KEY
+#GENERADOR DE GENERADORES
  unset arqslist
  arqslist="$GENLIST"
  for arqx in `echo "${arqslist}"`; do
@@ -98,7 +98,7 @@ elif [[ $readvalue = @(x|X) ]]; then
 echo "TRUE" >> ${DIR}/${KEY}/FERRAMENTA
 else
  for arqx in `echo "${readvalue}"`; do
- #UNE ARQ
+ #UNE ARCHIVOD
  [[ -e ${DIR}/${KEY}/${arq_list[$arqx]} ]] && continue #ANULA ARQUIVO CASO EXISTA
  cp ${SCPT_DIR}/${arq_list[$arqx]} ${DIR}/${KEY}/
  echo "${arq_list[$arqx]}" >> ${DIR}/${KEY}/${LIST}
@@ -116,7 +116,7 @@ unset txtofus
 number=$(expr length $1)
 for((i=1; i<$number+1; i++)); do
 txt[$i]=$(echo "$1" | cut -b $i)
-case ${txt[$i]} in
+case ${txt[$i]} in #OBFUSCACIÓN DE KEY
 ".")txt[$i]="+";;
 "+")txt[$i]=".";;
 "1")txt[$i]="@";;
@@ -134,14 +134,14 @@ echo "$txtofus" | rev
 }
 gerar_key () {
 valuekey="$(date | md5sum | head -c10)"
-valuekey+="$(echo $(($RANDOM*10))|head -c 5)"
+valuekey+="$(echo $(($RANDOM*10))|head -c 5)" #GENERACIÓN DE KEY
 fun_list "$valuekey"
 keyfinal=$(ofus "$IP:8888/$valuekey/$LIST")
 echo -e "\033[1;33mKEY: $keyfinal\ngenerada!\033[0m"
 echo -e "$BARRA"
 read -p "Enter para finalizar"
 }
-remover_key () {
+remover_key () { #OPCIÓN 2 (APAGAR O MIRAR KEYS)
 i=0
 [[ -z $(ls $DIR|grep -v "ERROR-KEY") ]] && return
 echo "[$i] Volver"
@@ -149,7 +149,7 @@ keys="$keys retorno"
 let i++
 for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
 arqsx=$(ofus "$IP:8888/$arqs/$LIST")
-[[ $(cat ${DIR}/${arqs}.name|grep FIXA) ]] && echo -e "\033[1;33m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;32m ($(cat ${DIR}/${arqs}/keyfixa))\033[0m" || echo -e "[$i] $arqsx ($(cat ${DIR}/${arqs}.name))"
+[[ $(cat ${DIR}/${arqs}.name|grep FIXA) ]] && echo -e "\033[1;33m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;32m ($(cat ${DIR}/${arqs}/keyfixa))\033[0m" || echo -e "[$i] $arqsx ($(cat ${DIR}/${arqs}.name))" #MUESTRA KEY(S)
 keys="$keys $arqs"
 let i++
 done
@@ -160,7 +160,7 @@ read -p "Elija cual remover: " -e -i 0 value
 done
 [[ -d "$DIR/${keys[$value]}" ]] && rm -rf $DIR/${keys[$value]}* || return
 }
-atualizar_keyfixa () {
+atualizar_keyfixa () { #NO SÉ BIEN PARA QUE SIRVE ESTO, PERO ACA SE VA A QUEDAR
 i=0
 [[ -z $(ls $DIR|grep -v "ERROR-KEY") ]] && return
 for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
@@ -190,7 +190,7 @@ read -p "NEW MESSAGE: " MSGNEW
 echo "$MSGNEW" > ${SCPT_DIR}/message.txt
 echo -e "$BARRA"
 }
-atualizar_geb () {
+atualizar_geb () { #ACTUALIZADOR DEL GENERADOR (PARA APLICAR LOS CAMBIOS DE GITHUB)
 wget -O $HOME/instger.sh https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL-1/GENERADOR-DE-GENERADORES/instgerador.sh &>/dev/null
 chmod 777 $HOME/instger.sh
 cd $HOME
@@ -239,3 +239,4 @@ elif [[ ${varread} = 0 ]]; then
 exit 0
 fi
 gerar.sh
+#CHAU
