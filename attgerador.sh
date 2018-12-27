@@ -36,11 +36,12 @@ mv -f $HOME/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
 }
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
-read -p "Digite a Key Para os Arquivos: " Key
+echo -e "\033[1;36m--------------------KEY GENERATOR UPDATER BY MARCHNICK--------------\033[0m"
+read -p "INTRODUZCA SU KEY DE ACTUALIZACIÓN: " Key
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 [[ ! $Key ]] && {
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
-echo -e "\033[1;33mKey Invalida!"
+echo -e "\033[1;33mKey inválida!"
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 exit
 }
@@ -51,7 +52,7 @@ MIP2=$(wget -qO- ipv4.icanhazip.com)
 echo "$IP" > /usr/bin/vendor_code
 }
 meu_ip
-echo -e "\033[1;33mVerificando key: "
+echo -e "\033[1;33mVerificando key... "
 cd $HOME
 wget -O "$HOME/lista-arq" $(ofus "$Key")/$IP > /dev/null 2>&1
 IP=$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
@@ -59,8 +60,8 @@ sleep 1s
 [[ -e $HOME/lista-arq ]] && {
 REQUEST=$(ofus "$Key" |cut -d'/' -f2)
 for arqx in `cat $HOME/lista-arq`; do
-echo -ne "\033[1;33mBaixando Arquivo \033[1;31m[$arqx] "
-wget -O $HOME/$arqx ${IP}:81/${REQUEST}/${arqx} > /dev/null 2>&1 && echo -e "\033[1;31m- \033[1;32mRecebido Com Sucesso!" || echo -e "\033[1;31m- \033[1;31mFalha (nao recebido!)"
+echo -ne "\033[1;33mDescargando archivo: \033[1;31m[$arqx] "
+wget -O $HOME/$arqx ${IP}:81/${REQUEST}/${arqx} > /dev/null 2>&1 && echo -e "\033[1;31m- \033[1;32mRecibido con éxito!" || echo -e "\033[1;31m- \033[1;31mFalla (no recibido!)"
 [[ -e $HOME/$arqx ]] && veryfy_fun $arqx
 done
 [[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://www.dropbox.com/s/l6iqf5xjtjmpdx5/trans?dl=0 &> /dev/null
