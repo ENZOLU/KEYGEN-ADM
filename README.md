@@ -1,6 +1,6 @@
 # GENERADOR DE GENERADORES
 
-Generador de keys para instalar el generador usando el link oficisl
+Generador de keys para instalar el generador usando el link oficial
 
 1 • SE RECOMIENDA UBUNTU 14.04 LTS
 
