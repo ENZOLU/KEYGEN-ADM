@@ -8,7 +8,7 @@ echo -e "$BARRA"
 cat << EOF
 
            NEW KEY GENERATOR BY MARCHNICK
-           INSTALACOES: $(cat $IVAR)
+           INSTALACIONES: $(cat $IVAR)
            
 EOF
 SCPT_DIR="/etc/SCRIPT"
