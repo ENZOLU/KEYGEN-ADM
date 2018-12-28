@@ -84,7 +84,7 @@ if [[ $readvalue = @(b|B) ]]; then
  cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
- elif [[ $readvalue = @(b|B) ]]; then
+ elif [[ $readvalue = @(x|X) ]]; then
  for arqx in `echo "${arqslist}"`; do
  [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
  cp /etc/GENERADOR/* /etc/http-shell/${KEY}/
