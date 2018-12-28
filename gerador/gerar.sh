@@ -16,6 +16,7 @@ SCPT_DIR="/etc/SCRIPT"
 INSTA_ARQUIVOS="ADMVPS.zip"
 DIR="/etc/http-shell"
 LIST="lista-arq"
+GENLIST="gerar.sh http-server.py menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh fai2ban.sh gestor.sh vnc dados.sh anti-ddos.sh un-ddos.sh crear-demo GENERADOR_BIN.sh MasterBin.sh paysnd.sh payySND.sh ultrahost"
 meu_ip () {
 MIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
 MIP2=$(wget -qO- ipv4.icanhazip.com)
@@ -85,6 +86,8 @@ if [[ $readvalue = @(b|B) ]]; then
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
  elif [[ $readvalue = @(x|X) ]]; then
+ unset arqlist
+ arqlist="$GENLIST"
  for arqx in `echo "${arqslist}"`; do
  [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
  cp /etc/GENERADOR/* /etc/http-shell/${KEY}/
