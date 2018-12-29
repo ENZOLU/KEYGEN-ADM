@@ -26,7 +26,7 @@ while [[ ${var[$value]} != 0 ]]; do
 [[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh"
 clear
 echo -e $BARRA
-echo -e "MENÚ SELECCIÓN DE INSTALACIÓN"
+echo -e "MENÃš SELECCIÃ“N DE INSTALACIÃ“N"
 echo -e $BARRA
 echo "[0] - FINALIZAR PROCEDIMIENTO"
 i=1
@@ -163,7 +163,7 @@ done
 keys=($keys)
 echo -e "$BARRA"
 while [[ -z ${keys[$value]} || -z $value ]]; do
-read -p "Seleccione qué Actualizar[t=todos]: " -e -i 0 value
+read -p "Seleccione quÃ© Actualizar[t=todos]: " -e -i 0 value
 done
 [[ $value = 0 ]] && return
 if [[ $value = @(t|T) ]]; then
