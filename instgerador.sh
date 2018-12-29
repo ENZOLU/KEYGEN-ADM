@@ -82,6 +82,7 @@ mv gerar.sh /etc/GENERADOR
 cd /etc/GENERADOR
 rm -rf FERRAMENTA KEY KEY! INVALIDA!
 rm $HOME/lista-arq
+sed -i -e 's/\r$//' /usr/bin/gerar.sh
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
 echo -e "\033[1;33m Perfecto, utilize el comando \033[1;31mgerar.sh o gerar \033[1;33mpara administrar sus keys y
