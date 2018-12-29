@@ -7,8 +7,8 @@ BARRA="\033[1;36m---------------------------------------------------------------
 echo -e "$BARRA"
 cat << EOF
 
-           NEW KEY GENERATOR BY 8TH
-           INSTALACOES: $(cat $IVAR)
+           NEW KEY GENERATOR BY MARCHNICK
+           INSTALACIONES: $(cat $IVAR)
            
 EOF
 SCPT_DIR="/etc/SCRIPT"
@@ -26,9 +26,9 @@ while [[ ${var[$value]} != 0 ]]; do
 [[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh"
 clear
 echo -e $BARRA
-echo -e "MENU SELECAO DE INSTALACAO"
+echo -e "MENU SSELECCIÓN DE INSTALACIÓN"
 echo -e $BARRA
-echo "[0] - FINALIZAR PROCEDIMENTO"
+echo "[0] - FINALIZAR PROCEDIMIENTO"
 i=1
 for arqx in `ls ${SCPT_DIR}`; do
 [[ $arqx = @(gerar.sh|http-server.py) ]] && continue
@@ -36,7 +36,7 @@ for arqx in `ls ${SCPT_DIR}`; do
 var[$i]="$arqx"
 let i++
 done
-echo -ne "Selecione o Arquivo [Adicionar/Eliminar]: "
+echo -ne "Seleccione un archivo [Adicionar/Eliminar]: "
 read value
 [[ -z ${var[$value]} ]] && return
 if [[ $(echo $BASICINST|grep -w "${var[$value]}") ]]; then
@@ -67,14 +67,14 @@ echo -e "[$i] -> ${arqx}"
 arq_list[$i]="${arqx}"
 let i++
 done
-echo -e "[b] -> INSTALACAO ADM"
-read -p "Escolha os Arquivos a Serem Repassados: " readvalue
+echo -e "[b] -> INSTALACIÓN ADM"
+read -p "Elija los archivos que se van a repasar: " readvalue
 #CRIA KEY
 [[ ! -e ${DIR}/${KEY} ]] && mkdir ${DIR}/${KEY}
 #PASSA ARQS
 [[ -z $readvalue ]] && readvalue="b"
-read -p "Nome do Usuario ( dono da Key ): " nombrevalue
-[[ -z $nombrevalue ]] && nombrevalue="unnamed"
+read -p "Nombre de usuario ( dueño de la key ): " nombrevalue
+[[ -z $nombrevalue ]] && nombrevalue="SIN NOMBRE"
 if [[ $readvalue = @(b|B) ]]; then
 #ADM BASIC
  arqslist="$BASICINST"
@@ -97,7 +97,7 @@ rm ${SCPT_DIR}/*.x.c &> /dev/null
 echo "$nombrevalue" > ${DIR}/${KEY}.name
 [[ ! -z $IPFIX ]] && echo "$IPFIX" > ${DIR}/${KEY}/keyfixa
 echo -e "$BARRA"
-echo -e "Key Ativa, e Aguardando Instalacao!"
+echo -e "Key activa, y aguardando instalación!"
 echo -e "$BARRA"
 }
 ofus () {
@@ -126,15 +126,15 @@ valuekey="$(date | md5sum | head -c10)"
 valuekey+="$(echo $(($RANDOM*10))|head -c 5)"
 fun_list "$valuekey"
 keyfinal=$(ofus "$IP:8888/$valuekey/$LIST")
-echo -e "KEY: $keyfinal\nGerada!"
+echo -e "KEY: $keyfinal\ngenerada!"
 echo -e "$BARRA"
-read -p "Enter to Finalize"
+read -p "Enter para finalizar"
 }
 att_gen_key () {
 i=0
 rm ${SCPT_DIR}/*.x.c &> /dev/null
 [[ -z $(ls $DIR|grep -v "ERROR-KEY") ]] && return
-echo "[$i] Retornar"
+echo "[$i] Volver"
 keys="$keys retorno"
 let i++
 for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
@@ -194,7 +194,7 @@ rm ${KEYDIR}/${LIST}
 remover_key () {
 i=0
 [[ -z $(ls $DIR|grep -v "ERROR-KEY") ]] && return
-echo "[$i] Retornar"
+echo "[$i] Volver"
 keys="$keys retorno"
 let i++
 for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
@@ -210,7 +210,7 @@ done
 keys=($keys)
 echo -e "$BARRA"
 while [[ -z ${keys[$value]} || -z $value ]]; do
-read -p "Escolha qual remover: " -e -i 0 value
+read -p "Elija cual remover: " -e -i 0 value
 done
 [[ -d "$DIR/${keys[$value]}" ]] && rm -rf $DIR/${keys[$value]}* || return
 }
@@ -224,10 +224,10 @@ arqsx=$(ofus "$IP:8888/$arqs/$LIST")
   rm -rf ${DIR}/${arqs}*
   echo -e "\033[1;31m[KEY]: $arqsx \033[1;32m(REMOVIDA!)\033[0m" 
   else
-  echo -e "\033[1;32m[KEY]: $arqsx \033[1;32m(DENTRO DA VALIDADE!)\033[0m"
+  echo -e "\033[1;32m[KEY]: $arqsx \033[1;32m(AÚN VÁLIDA!)\033[0m"
   fi
  else
- echo -e "\033[1;32m[KEY]: $arqsx \033[1;32m(DENTRO DA VALIDADE!)\033[0m"
+ echo -e "\033[1;32m[KEY]: $arqsx \033[1;32m(AÚN VÁLIDA!)\033[0m"
  fi
 let i++
 done
@@ -248,6 +248,13 @@ message_gen () {
 read -p "NEW MESSAGE: " MSGNEW
 echo "$MSGNEW" > ${SCPT_DIR}/message.txt
 echo -e "$BARRA"
+}
+act_gen () {
+wget -O $HOME/actgenerador.sh https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL-1/master/actgenerador.sh
+chmod +x $HOME/actgenerador.sh
+cd $HOME
+./actgenerador.sh
+rm $HOME/actgenerador.sh &>/dev/null
 }
 rmv_iplib () {
 echo -e "SERVIDORES DE KEY ATIVOS!"
@@ -271,16 +278,17 @@ unset PID_GEN
 PID_GEN=$(ps x|grep -v grep|grep "http-server.sh")
 [[ ! $PID_GEN ]] && PID_GEN="\033[1;31moff" || PID_GEN="\033[1;32monline"
 echo -e "$BARRA"
-echo -e "Diretorio Dos Arquivos Repassados \033[1;31m${SCPT_DIR}\033[0m"
+echo -e "Diretorio de los archivos repasados \033[1;31m${SCPT_DIR}\033[0m"
 echo -e "$BARRA"
-echo -e "[1] = GERAR 1 KEY ALEATORIA"
-echo -e "[2] = APAGAR/OLHAR KEYS"
-echo -e "[3] = LIMPAR KEYS USADAS"
-echo -e "[4] = ALTERAR ARQUIVOS KEY BASICA"
-echo -e "[5] = START/STOP KEYGEN $PID_GEN\033[0m"
+echo -e "[1] = GENERAR 1 KEY ALEATORIA"
+echo -e "[2] = APAGAR/VER KEYS"
+echo -e "[3] = LIMPIAR KEYS USADAS"
+echo -e "[4] = ALTERAR ARCHIVOS DE KEY BASICA"
+echo -e "[5] = INICIAR/PARAR KEYGEN $PID_GEN\033[0m"
 echo -e "[6] = VER LOG"
-echo -e "[7] = MUDAR MENSAGEM"
-echo -e "[0] = SAIR"
+echo -e "[7] = CAMBIAR CRÉDITOS"
+echo -e "[8] = ACTUALIZAR GENERADOR"
+echo -e "[0] = SALIR"
 echo -e "$BARRA"
 while [[ ${varread} != @([0-8]) ]]; do
 read -p "Opcao: " varread
@@ -300,9 +308,11 @@ elif [[ ${varread} = 5 ]]; then
 start_gen
 elif [[ ${varread} = 6 ]]; then
 echo -ne "\033[1;36m"
-cat /etc/gerar-sh-log 2>/dev/null || echo "NENHUM LOG NO MOMENTO"
+cat /etc/gerar-sh-log 2>/dev/null || echo "NINGUN LOG DE MOMENTO"
 echo -ne "\033[0m" && read -p "Enter"
 elif [[ ${varread} = 7 ]]; then
 message_gen
+elif [[ ${varread} = 8 ]]; then
+act_gen
 fi
 /usr/bin/gerar.sh
