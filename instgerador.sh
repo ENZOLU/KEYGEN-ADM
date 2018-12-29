@@ -77,7 +77,7 @@ cp /etc/SCRIPT/* /etc/GENERADOR
 cp $HOME/lista-arq /etc/GENERADOR
 cp /bin/http-server.sh /etc/GENERADOR
 mv /etc/GENERADOR/http-server.sh /etc/GENERADOR/http-server.py
-wget https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL-1/master/gerador/gerar.sh
+wget https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL-1/master/gerador/gerar.sh &>/dev/null
 mv gerar.sh /etc/GENERADOR
 cd /etc/GENERADOR
 rm -rf FERRAMENTA KEY KEY! INVALIDA!
