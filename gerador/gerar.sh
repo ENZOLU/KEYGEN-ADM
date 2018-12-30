@@ -67,7 +67,7 @@ echo -e "[$i] -> ${arqx}"
 arq_list[$i]="${arqx}"
 let i++
 done
-echo -e "[b] -> INSTALACIÓN ADM"
+echo -e "[b] -> \033[0;33mINSTALACIÓN ADM\033[0m"
 read -p "Elija los archivos que se van a repasar: " readvalue
 #CRIA KEY
 [[ ! -e ${DIR}/${KEY} ]] && mkdir ${DIR}/${KEY}
