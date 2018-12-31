@@ -81,7 +81,7 @@ if [[ $readvalue = @(b|B) ]]; then
  arqslist="$BASICINST"
  for arqx in `echo "${arqslist}"`; do
  [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
- [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/
+ [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
 elif [[ $readvalue = @(x|X) ]]; then
