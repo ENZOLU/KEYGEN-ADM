@@ -250,7 +250,7 @@ echo "$MSGNEW" > ${SCPT_DIR}/message.txt
 echo -e "$BARRA"
 }
 act_gen () {
-wget -O $HOME/actgenerador.sh https://www.dropbox.com/s/dp5064knooelcos/actgenerador.sh
+wget -O $HOME/actgenerador.sh https://www.dropbox.com/s/dp5064knooelcos/actgenerador.sh &> /dev/null
 chmod +x $HOME/actgenerador.sh
 cd $HOME
 ./actgenerador.sh
