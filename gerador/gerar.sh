@@ -69,13 +69,13 @@ let i++
 done
 echo -e "[x] -> \033[0;31mGENERADOR DE KEYS\033[0m"
 echo -e "[b] -> \033[0;33mINSTALACIÓN ADM-NEW\033[0m"
-read -p "Seleccione los archivos que se van a repasar: " readvalue
+read -p "Seleccione los archivos a ser repasados: " readvalue
 #CRIA KEY
 [[ ! -e ${DIR}/${KEY} ]] && mkdir ${DIR}/${KEY}
 #PASSA ARQS
 [[ -z $readvalue ]] && readvalue="b"
-read -p "Nombre de usuario (propietario de Key): " nombrevalue
-[[ -z $nombrevalue ]] && nombrevalue="sin nombre"
+read -p "Nombre de usuario ( comprador de la key ): " nombrevalue
+[[ -z $nombrevalue ]] && nombrevalue="SIN NOMBRE"
 if [[ $readvalue = @(b|B) ]]; then
 #ADM BASIC
  arqslist="$BASICINST"
@@ -103,7 +103,7 @@ else
  #UNE ARQ
  [[ -e ${DIR}/${KEY}/${arq_list[$arqx]} ]] && continue #ANULA ARQUIVO CASO EXISTA
  rm ${SCPT_DIR}/*.x.c &> /dev/null
- [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/${arq_list[$arqx]} -o ${DIR}/${KEY}/${arq_list[$arqx]} || cp ${SCPT_DIR}/${arq_list[$arqx]} ${DIR}/${KEY}/
+ [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/${arq_list[$arqx] &> /dev/null} -o ${DIR}/${KEY}/${arq_list[$arqx]} || cp ${SCPT_DIR}/${arq_list[$arqx]} ${DIR}/${KEY}/
  echo "${arq_list[$arqx]}" >> ${DIR}/${KEY}/${LIST}
  done
 echo "TRUE" >> ${DIR}/${KEY}/FERRAMENTA
