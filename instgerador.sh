@@ -1,7 +1,7 @@
 #!/bin/bash
 IVAR="/etc/http-instas"
 SCPT_DIR="/etc/SCRIPT"
-SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0VOWk9MVS9HRU5FUkFET1ItTkVXLVVMVElNQVRFLU9SSUdJTkFMLTEvR0VORVJBRE9SLURFLUdFTkVSQURPUkVTL2dlcmFkb3I="
+SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0VOWk9MVS9LRVlHRU4tQURNL0dFTkVSQURPUi1ERS1HRU5FUkFET1JFUy9nZXJhZG9y"
 SUB_DOM='base64 -d'
 rm $(pwd)/$0
 ofus () {
@@ -74,7 +74,7 @@ echo "$Key" > $IVAR
 cp $HOME/lista-arq /etc/SCRIPT
 cp /bin/http-server.sh /etc/SCRIPT
 mv /etc/SCRIPT/http-server.sh /etc/SCRIPT/http-server.py
-wget https://raw.githubusercontent.com/ENZOLU/GENERADOR-NEW-ULTIMATE-ORIGINAL-1/master/gerador/gerar.sh &>/dev/null
+wget https://raw.githubusercontent.com/ENZOLU/KEYGEN-ADM/master/gerador/gerar.sh &>/dev/null
 mv gerar.sh /etc/SCRIPT
 cd /etc/SCRIPT
 rm -rf FERRAMENTA KEY KEY! INVALIDA!
